@@ -11,6 +11,7 @@
     <li>
         {{ forloop.counter }}
         <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
+        <small>({{ post.created_at|timesince }} ago)</small>
     </li>
   {% empty %}
       <li>항목이 없습니다.</li>
