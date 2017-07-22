@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "blog/layout.html" %}
 
 {% block content %}
 
@@ -9,8 +9,11 @@
 <ul>
   {% for post in post_list %}
     <li>
+        {{ forloop.counter }}
         <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
     </li>
+  {% empty %}
+      <li>항목이 없습니다.</li>
   {% endfor %}
 
 {% endblock %}
