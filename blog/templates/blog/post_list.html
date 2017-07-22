@@ -18,9 +18,11 @@
 <ul>
   {% for post in post_list %}
     <li>
-      {{ post.title }}
+        <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
     </li>
   {% endfor %}
+    <hr/>
+    &copy; 2017. Askdjango
 </ul>
 </body>
 </html>

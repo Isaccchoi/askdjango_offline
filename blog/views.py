@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.shortcuts import get_object_or_404
 from .models import Post
 
 # Create your views here.
@@ -11,8 +13,7 @@ def post_list(request):
 
     query = request.GET.get("query", "")
     if query:
-        condition = Q(title__icontains=query) |
-        Q(content__icontains=query)
+        condition = Q(title__icontains=query) | Q(content__icontains=query)
 
         qs = qs.filter(condition)
 
@@ -32,3 +33,7 @@ def mysum(request, numbers):
         for number in numbers.split('/')
     )
     return HttpResponse(result)
+
+def post_detail(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    return render(request, 'blog/post_detail.html', {"post": post})
