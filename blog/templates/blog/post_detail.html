@@ -5,4 +5,7 @@
 
 <div>{{ post.content | linebreaksbr }}</div>
 
+    <hr/>
+    <a href="{% url 'blog:post_list' %}">목록으로</a>
+
 {% endblock %}

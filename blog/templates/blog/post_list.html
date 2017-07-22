@@ -10,7 +10,7 @@
   {% for post in post_list %}
     <li>
         {{ forloop.counter }}
-        <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
+        <a href="{% url 'blog:post_detail' post.pk %}">{{ post.title }}</a>
         <small>({{ post.created_at|timesince }} ago)</small>
     </li>
   {% empty %}
