@@ -1,0 +1,2 @@
+db 이름을 바꾸고 싶으면 마이그레이션전에 Meta class 에 db_table 을 사옹하여 편집
+PK키를 따로 지정하지 않으면 자동으로 id필드를 생성 - primary key = True 속성 추가
