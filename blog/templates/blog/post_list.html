@@ -1,16 +1,7 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>AskDjango 블로그</title>
-</head>
+{% extends "layout.html" %}
 
-<body>
-<h1>AskDjango<h2>
+{% block content %}
 
-  <p>
-    여러분의 파이썬/장고 페이스메이커가 되겠습니다.
-  </p>
   <form action="" method="GET">
     <input type="text" name="query" value="{{query}}">
     <input type="submit" value="검색">
@@ -21,8 +12,5 @@
         <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
     </li>
   {% endfor %}
-    <hr/>
-    &copy; 2017. Askdjango
-</ul>
-</body>
-</html>
+
+{% endblock %}

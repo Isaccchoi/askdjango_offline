@@ -2,10 +2,9 @@
 from __future__ import unicode_literals
 from django.db.models import Q
 from django.http import HttpResponse
-from django.shortcuts import render
-from django.shortcuts import get_object_or_404
-from .models import Post
+from django.shortcuts import render, get_object_or_404
 
+from .models import Post
 # Create your views here.
 
 def post_list(request):
@@ -22,17 +21,17 @@ def post_list(request):
 # def mysum(request, x, y=0, z=0):
 #     return HttpResponse(int(x) + int(y) + int(z))
 
-def mysum(request, numbers):
-    '''
-    result = 0
-    for number in numbers.split("/"):
-        result += int(number)
-        '''
-    result = sum(
-        int(number or 0)
-        for number in numbers.split('/')
-    )
-    return HttpResponse(result)
+# def mysum(request, numbers):
+#     '''
+#     result = 0
+#     for number in numbers.split("/"):
+#         result += int(number)
+#         '''
+#     result = sum(
+#         int(number or 0)
+#         for number in numbers.split('/')
+#     )
+#     return HttpResponse(result)
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
