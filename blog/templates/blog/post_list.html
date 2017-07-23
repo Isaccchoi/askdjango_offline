@@ -6,6 +6,7 @@
     <input type="text" name="query" value="{{query}}">
     <input type="submit" value="검색">
   </form>
+    <a href="{% url 'blog:post_new' %}">New Post</a>
 <ul>
   {% for post in post_list %}
     <li>
