@@ -29,12 +29,26 @@ def post_new(request):
         if form.is_valid():
             post = form.save()
             return redirect('blog:post_detail', post.id)
-
     else:
         form = PostForm()
     return render(request, 'blog/post_form.html', {
         "form": form,
     })
+
+def post_edit(request, id):
+    post = get_object_or_404(POST, id=id)
+    if request.method = 'POST':
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            post = form.save()
+            return redirect('blog:post_detail', post.id)
+
+    else:
+        form = PostForm(instance=post)
+
+    return render(request, 'post_form.html', {'form': form,})
+
+
 
 # def mysum(request, x, y=0, z=0):
 #     return HttpResponse(int(x) + int(y) + int(z))
