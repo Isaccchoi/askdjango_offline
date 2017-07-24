@@ -28,7 +28,7 @@ def post_new(request):
         form = PostForm(request.POST)
         if form.is_valid():
             post = form.save()
-            return redirect('blog:post_detail', post.id)
+            return redirect(post)  #get_absolute_url로 이동
     else:
         form = PostForm()
     return render(request, 'blog/post_form.html', {
