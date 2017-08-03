@@ -1,18 +1,15 @@
+{% extends "blog/layout.html" %}
 {% load bootstrap3 %}
 
-{% bootstrap_css %}
-{% bootstrap_javascript %}
+{% block content %}
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
-            <form action="" method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
-                <table>
-                    {{ form }}
-                </table>
-                <input type="submit" value="저장하기" />
-            </form>
-        </div>
-    </div>
-</div>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <input type="submit" value="저장하기" class="btn btn-primary btn-block" />
+        {% if form.instance.pk %}
+            <a href="{{ form.instance.get_absolute_url }}" class="btn btn-default btn-block">내용으로</a>
+        {% endif %}
+    </form>
+
+{% endblock %}

@@ -1,8 +1,15 @@
-<form action="" method="POST">
-    {% csrf_token %}
+{% extends "accounts/layout.html" %}
+{% load bootstrap3 %}
 
-    <table>
-        {{ form.as_table }}
-    </table>
-    <input type="submit" />
-</form>
+{% block content %}
+
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit" />
+    </form>
+
+{% endblock %}
